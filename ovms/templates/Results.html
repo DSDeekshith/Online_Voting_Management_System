@@ -1,0 +1,73 @@
+{% extends 'base1.html' %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+
+
+{% load static %}
+
+{% block main_content %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style type="text/css">
+
+        h1 {
+            color: Blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="display-4">Candidates list (1st Candidate is the winner)</h1>
+    <body>
+        <div class="container">
+            <form class="form" method='POST'> {% csrf_token %}
+                    {{ res_form|crispy }}
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+            </form>
+            <h1>   </h1>
+            <h1>   </h1>
+            <h1>   </h1>
+        </div>
+        <div class="container mt-50">
+        <table class="table">
+        <thead class="thead-dark">
+
+            <tr>
+                <th scope="col">Candidate ID</th>
+                <th scope="col">Candidate Name</th>
+                <th scope="col">Number of Votes</th>
+            </tr>
+
+
+        </thead>
+            {% for r in cand_list %}
+                    <tr>
+                        <td>{{ r.Candidate_id }}</td>
+                        <td>{{ r.Candidate_name }}</td>
+                        <td>{{ r.No_of_votes }}</td>
+                    </tr>
+            {% endfor %}
+    </table>
+</div>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}

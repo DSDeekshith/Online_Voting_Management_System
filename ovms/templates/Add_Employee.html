@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block main_content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add_Employee</title>
+    <style type="text/css">
+        form {
+            align: center;
+        }
+        .login-page {
+            width: 750px;
+            padding: 10% 0 0;
+            margin: auto;
+        }
+        .form {
+            position: relative;
+            z-index: 1;
+            background: #ffffff;
+            max-width: 7500px;
+            padding: 45px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <form class="form" method='POST' autocomplete="off"> {% csrf_token %}
+                  <h1 class="h3 mb-3 font-weight-normal">Please Enter Details</h1>
+        {{ emp_form1|crispy }}
+        {{ emp_form2|crispy }}
+            <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

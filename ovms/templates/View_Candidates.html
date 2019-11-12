@@ -1,0 +1,34 @@
+{% extends 'base1.html' %}
+{% load render_table from django_tables2 %}
+
+{% load static %}
+
+{% block main_content %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Candidates</title>
+    <style type="text/css">
+
+        h1 {
+            color: Blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="display-4">Candidates list</h1>
+    <body>
+        {% render_table cand_list %}
+    </body>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}
