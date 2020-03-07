@@ -4,11 +4,11 @@ A web application made on Django Framework, makes use of front end languages lik
 
 # Requirements
 
-Python 3.x
+[Python 3.x](https://www.python.org/downloads/)
 
 # Dependencies
 
-Use the package manager pip to install all the dependencies
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the dependencies
 
 Django 2.0+
 
@@ -30,5 +30,6 @@ django-tables2 v2.1.1
 
 Run the below command in the project directory to put the server up and running.
 
-python manage.py runserver
+> python manage.py runserver
+
 Open localhost:8000 in your browser.
